@@ -5,7 +5,8 @@ import {
   Rect,
   Text,
   G,
-  Path
+  Path,
+  Circle
 } from 'react-native-svg'
 import AbstractChart from './abstract-chart'
 
@@ -34,16 +35,14 @@ class PieChart extends AbstractChart {
             d={c.sector.path.print()}
             fill={c.item.color}
           />
-          <Rect
-            width="5%"
-            height="13%"
+          <Circle
             fill={c.item.color}
-            rx={8}
-            ry={8}
-            x={(this.props.width / 2.5) - 24}
-            y={-(this.props.height / 2.5) + ((this.props.height * 0.8) / this.props.data.length * i) + 12}
+            r="10"
+            cx={(this.props.width / 2.5) - 24}
+            cy={-(this.props.height / 2.5) + ((this.props.height * 0.8) / this.props.data.length * i) + 20}
           />
           <Text
+            fontFamily={"Avenir-Book"}
             fill={c.item.legendFontColor}
             fontSize={c.item.legendFontSize}
             x={this.props.width / 2.5}
